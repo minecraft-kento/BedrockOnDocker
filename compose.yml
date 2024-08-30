@@ -8,11 +8,22 @@ services:
     build: .
     image: minecraft/bedrock/alpine
     container_name: bedrock-on-docker
+    volumes:
+      - ./bedrock_server:/app/bedrock_server
+    networks:
+      default:
+        ipv4_address: 172.16.238.21
     ports:
       - "19132:19132/udp"
-    # これを有効にすると Dockerfile で COPY したファイルを上書きしてしまうため有効にできない
-    # volumes:
-    #   - ./bedrock_server:/app/bedrock_server
     stdin_open: true
     tty: true
-    network_mode: host
+
+####################################################################################################
+# ネットワーク : ネットワークスイッチっぽいやつ？
+####################################################################################################
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/24"

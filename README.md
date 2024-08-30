@@ -20,3 +20,12 @@ Alpine Linux 上で マイクラ統合 (Minecraft Bedrock Dedicated Server) を�
 ## 参考になったサイト
 
 1. [DockerのAlpineでglibc問題を一発解決する #dockerfile - Qiita](https://qiita.com/dojyorin/items/5a53b6eed77803d558ed)
+
+
+## 実行の仕方
+
+### Alpine Linux 版
+
+1. [サーバー](https://www.minecraft.net/ja-jp/download/server/bedrock)をダウンロード
+2. zipファイルの中身を `.\bedrock_server` に解凍
+3. `docker compose up -d` で開始
